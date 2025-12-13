@@ -1,0 +1,37 @@
+<Window x:Class="QuanLyBanHang.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hệ thống Quản lý Bán hàng" Height="650" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Background="LightBlue" Orientation="Horizontal">
+            <TextBlock Text="QUẢN LÝ BÁN HÀNG" FontSize="16" FontWeight="Bold" 
+                       VerticalAlignment="Center" Margin="15,0"/>
+            
+            <Button x:Name="btnPOS" Content="Bán hàng" Margin="10,10" Padding="10,5" Click="btnPOS_Click"/>
+            <Button x:Name="btnProducts" Content="Sản phẩm" Margin="10,10" Padding="10,5" Click="btnProducts_Click"/>
+            <Button x:Name="btnCategories" Content="Danh mục" Margin="10,10" Padding="10,5" Click="btnCategories_Click"/>
+            <Button x:Name="btnImport" Content="Nhập hàng" Margin="10,10" Padding="10,5" Click="btnImport_Click"/>
+            <Button x:Name="btnUsers" Content="Người dùng" Margin="10,10" Padding="10,5" Click="btnUsers_Click"/>
+            <Button x:Name="btnReports" Content="Báo cáo" Margin="10,10" Padding="10,5" Click="btnReports_Click"/>
+            
+            <TextBlock x:Name="lblUser" VerticalAlignment="Center" Margin="30,0,10,0"/>
+            <Button x:Name="btnLogout" Content="Đăng xuất" Margin="10,10" Padding="10,5" Click="btnLogout_Click"/>
+        </StackPanel>
+        
+        <!-- Content -->
+        <Frame x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        
+        <!-- Status Bar -->
+        <StackPanel Grid.Row="2" Background="LightGray" Orientation="Horizontal">
+            <TextBlock x:Name="lblStatus" Text="Sẵn sàng" VerticalAlignment="Center" Margin="10,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

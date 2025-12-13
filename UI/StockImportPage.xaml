@@ -1,0 +1,42 @@
+<Page x:Class="QuanLyBanHang.UI.StockImportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Nhập hàng">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        
+        <GroupBox Grid.Column="0" Header="Danh sách sản phẩm" Margin="0,0,10,0">
+            <DataGrid x:Name="dgProducts" AutoGenerateColumns="False" IsReadOnly="True"
+                      SelectionChanged="dgProducts_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã" Binding="{Binding ProductId}" Width="50"/>
+                    <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding ProductName}" Width="*"/>
+                    <DataGridTextColumn Header="Tồn kho hiện tại" Binding="{Binding Quantity}" Width="100"/>
+                    <DataGridTextColumn Header="Giá nhập" Binding="{Binding CostPrice, StringFormat=N0}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        
+        <GroupBox Grid.Column="1" Header="Nhập hàng">
+            <StackPanel Margin="10">
+                <TextBlock Text="Sản phẩm đã chọn:" Margin="0,0,0,5"/>
+                <TextBlock x:Name="lblProduct" FontWeight="Bold" Margin="0,0,0,15"/>
+                
+                <TextBlock Text="Số lượng nhập:" Margin="0,0,0,5"/>
+                <TextBox x:Name="txtQuantity" Height="30" Margin="0,0,0,10"/>
+                
+                <TextBlock Text="Giá nhập mới (tùy chọn):" Margin="0,0,0,5"/>
+                <TextBox x:Name="txtCostPrice" Height="30" Margin="0,0,0,20"/>
+                
+                <Button Content="Nhập hàng" Height="35" Click="btnImport_Click" 
+                        Background="LightGreen"/>
+                
+                <TextBlock x:Name="lblMessage" Margin="0,15,0,0" TextWrapping="Wrap" 
+                           Foreground="Green"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>
